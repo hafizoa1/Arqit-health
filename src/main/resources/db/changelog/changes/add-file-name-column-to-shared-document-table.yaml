@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-file-name-column
+      author: hafiz
+      context: hospital
+      changes:
+        - addColumn:
+            tableName: shared_documents
+            columns:
+              - column:
+                  name: file_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                  defaultValue: 'unknown'

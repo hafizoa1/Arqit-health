@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-shared-documents-table
+      author: hafiz
+      context: hospital
+      changes:
+        - createTable:
+            tableName: shared_documents
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: source_hospital_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target_hospital_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: encrypted_data
+                  type: BYTEA
+                  constraints:
+                    nullable: false
+              - column:
+                  name: decrypted_document
+                  type: BYTEA
+              - column:
+                  name: document_parameters
+                  type: BYTEA
+                  constraints:
+                    nullable: false
+              - column:
+                  name: shared_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(50)

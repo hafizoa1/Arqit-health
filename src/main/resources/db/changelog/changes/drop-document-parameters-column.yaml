@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: drop-document-parameters-column
+      author: hafiz
+      context: hospital
+      changes:
+        - dropColumn:
+            tableName: shared_documents
+            columnName: document_parameters
+      rollback:
+        - addColumn:
+            tableName: shared_documents
+            columns:
+              - column:
+                  name: document_parameters
+                  type: BYTEA
+                  constraints:
+                    nullable: false

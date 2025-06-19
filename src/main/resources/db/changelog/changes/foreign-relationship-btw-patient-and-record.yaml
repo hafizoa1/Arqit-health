@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: admin
+      context: hospital
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: patient_id
+            baseTableName: patient_records
+            constraintName: fk_record_patient
+            referencedColumnNames: patient_id
+            referencedTableName: patients
+            onDelete: CASCADE

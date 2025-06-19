@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: admin
+      context: hospital
+      changes:
+        - createTable:
+            tableName: patient_records
+            columns:
+              - column:
+                  name: record_id
+                  type: uuid
+                  defaultValueComputed: "gen_random_uuid()"
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: filename
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content_type
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: storage_location
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(1000)
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patient_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: uploaded_by
+                  type: uuid

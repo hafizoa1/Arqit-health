@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: remove-decrypted-document-column
+      author: hafiz
+      context: hospital
+      changes:
+        - dropColumn:
+            tableName: shared_documents
+            columnName: decrypted_document
+      rollback:
+        - addColumn:
+            tableName: shared_documents
+            columns:
+              - column:
+                  name: decrypted_document
+                  type: BYTEA

@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-hospital-relationships-table
+      author: hafiz
+      context: hospital
+      changes:
+        - createTable:
+            tableName: hospital_relationships
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: origin_hospital_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target_hospital_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: relationship_type
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: relationship_status
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: established_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expires_at
+                  type: TIMESTAMP

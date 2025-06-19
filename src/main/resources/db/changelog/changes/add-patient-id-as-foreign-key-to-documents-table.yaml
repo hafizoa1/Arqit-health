@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-patient-id-column
+      author: hafiz
+      context: hospital
+      changes:
+        - addColumn:
+            tableName: shared_documents
+            columns:
+              - column:
+                  name: patient_id
+                  type: UUID
+
+        - addForeignKeyConstraint:
+            baseColumnNames: patient_id
+            baseTableName: shared_documents
+            constraintName: fk_shared_documents_patient
+            referencedColumnNames: patient_id
+            referencedTableName: patients
+            onDelete: CASCADE

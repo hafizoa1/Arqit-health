@@ -1,0 +1,30 @@
+services:
+  postgres-hospital-a:
+    image: postgres:latest
+    container_name: postgres-hospital-a
+    environment:
+      - POSTGRES_DB=hospital_a_db
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - "5433:5432"  # maps container 5432 to host 5433
+
+  postgres-hospital-b:
+    image: postgres:latest
+    container_name: postgres-hospital-b
+    environment:
+      - POSTGRES_DB=hospital_b_db
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - "5434:5432"
+
+  postgres-arqit:
+    image: postgres:latest
+    container_name: postgres-arqit
+    environment:
+      - POSTGRES_DB=arqit_mock_db
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - "5435:5432"
